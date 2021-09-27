@@ -1,3 +1,4 @@
+import React from 'react'
 import axios from 'axios'
 import path from 'path'
 // import { Post } from './types'
@@ -37,4 +38,20 @@ export default {
     require.resolve('react-static-plugin-reach-router'),
     require.resolve('react-static-plugin-sitemap'),
   ],
+  Document: ({
+    Html,
+    Head,
+    Body,
+    children,
+    state: { siteData, renderMeta },
+  }) => (
+    <Html lang="en-US">
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="og:description" content="this gets duplicated after building" />
+      </Head>
+      <Body>{children}</Body>
+    </Html>
+  ),
 }

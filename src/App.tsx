@@ -1,5 +1,5 @@
 import React from 'react'
-import { Root, Routes, addPrefetchExcludes } from 'react-static'
+import { Head, Root, Routes, addPrefetchExcludes } from 'react-static'
 import { Link, Router } from '@reach/router'
 import FancyDiv from 'components/FancyDiv'
 import Dynamic from 'containers/Dynamic'
@@ -11,6 +11,10 @@ addPrefetchExcludes(['dynamic'])
 function App() {
   return (
     <Root>
+      <Head>
+        <meta name="og:description" content="this gets duplicated after building" />
+      </Head>
+
       <nav>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
